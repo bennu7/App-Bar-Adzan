@@ -49,16 +49,21 @@ struct PrayerSchedule: Codable {
 
 // MARK: - Fasting Status
 enum FastingStatus {
-    case fasting(reason: String)
+    case fasting(reason: String, emoji: String = "")
     case notFasting
-    
+
     var isFasting: Bool {
         if case .fasting = self { return true }
         return false
     }
-    
+
     var reason: String? {
-        if case .fasting(let reason) = self { return reason }
+        if case .fasting(let reason, _) = self { return reason }
         return nil
+    }
+
+    var emoji: String {
+        if case .fasting(_, let emoji) = self { return emoji }
+        return ""
     }
 }

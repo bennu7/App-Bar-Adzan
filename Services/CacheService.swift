@@ -34,10 +34,13 @@ class CacheService {
         guard let cacheDate = defaults.object(forKey: cacheDateKey) as? Date else {
             return false
         }
-        
-        // Use current calendar (device time) for cache validity check
+
+        // Cache valid for 7 days
         let calendar = Calendar.current
-        return calendar.isDateInToday(cacheDate)
+        let components = calendar.dateComponents([.day], from: cacheDate, to: Date())
+        
+        // Valid if less than 7 days old
+        return (components.day ?? 0) < 7
     }
     
     // MARK: - Clear Cache

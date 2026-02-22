@@ -56,13 +56,55 @@ class PrayerTimeUtils {
         return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
     
-    // MARK: - Fasting Detection
-    static func detectFastingStatus() -> FastingStatus {
-        let calendar = Calendar.current
+    // MARK: - Fasting Detection (Ramadan Mode)
+    static func detectFastingStatus(prayerTimes: [PrayerTime]) -> FastingStatus {
+        let now = Date()
         
+        // Find Subuh, Maghrib, and Isya times
+        let subuhTime = prayerTimes.first(where: { $0.name == "Subuh" })?.time
+        let maghribTime = prayerTimes.first(where: { $0.name == "Maghrib" })?.time
+        let isyaTime = prayerTimes.first(where: { $0.name == "Isya" })?.time
+        
+        // Guard: all prayer times must be available
+        guard let subuh = subuhTime, let maghrib = maghribTime, let isya = isyaTime else {
+            return .notFasting
+        }
+        
+        let calendar = Calendar.current
+        let midnight = calendar.startOfDay(for: now)
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: midnight)!.addingTimeInterval(-1)
+        
+        // 00:00 - Subuh: Selamat Sahur 🌙
+        if now < subuh {
+            return .fasting(reason: "Selamat Sahur", emoji: "🌙")
+        }
+        
+        // Subuh - Maghrib: Selamat Berpuasa ☀️
+        if now < maghrib {
+            return .fasting(reason: "Selamat Berpuasa", emoji: "☀️")
+        }
+        
+        // Maghrib - Isya: Selamat Berbuka 🍽️
+        if now < isya {
+            return .fasting(reason: "Selamat Berbuka", emoji: "🍽️")
+        }
+        
+        // Isya - 23:59: Selamat Tarawih 🕌
+        if now < endOfDay {
+            return .fasting(reason: "Selamat Tarawih", emoji: "🕌")
+        }
+        
+        // Fallback (should not reach here)
+        return .notFasting
+    }
+
+    // MARK: - Fasting Detection (Senin/Kamis) - DISABLED FOR RAMADAN
+    // Uncomment after Ramadan if needed
+    /*
+    static func detectFastingStatusSeninKamis() -> FastingStatus {
+        let calendar = Calendar.current
         let now = Date()
         let weekday = calendar.component(.weekday, from: now)
-        let day = calendar.component(.day, from: now)
         
         // Monday or Thursday
         if weekday == 2 || weekday == 5 {
@@ -70,14 +112,15 @@ class PrayerTimeUtils {
         }
         
         // Ayyamul Bidh (13, 14, 15 Hijri)
-        // Note: Ideally this should use Hijri calendar, but for MVP Gregorian mapping or Hijri lib is needed.
-        // Assuming simple day check for now as placeholder or specific logic.
+        // Note: This should use Hijri calendar for accurate calculation
+        let day = calendar.component(.day, from: now)
         if [13, 14, 15].contains(day) {
             return .fasting(reason: "Ayyamul Bidh")
         }
         
         return .notFasting
     }
+    */
     
     // MARK: - Format Date
     static func formatDate(_ date: Date) -> String {

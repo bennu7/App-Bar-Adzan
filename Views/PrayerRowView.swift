@@ -6,7 +6,9 @@ struct PrayerRowView: View {
     let countdown: String?
     let progress: Double
     let theme: SkyTheme
-    
+
+    @State private var pulseAnimation: Double = 0.3
+
     init(prayer: PrayerTime, isNext: Bool, countdown: String?, progress: Double = 0.0, theme: SkyTheme = SkyTheme()) {
         self.prayer = prayer
         self.isNext = isNext
@@ -14,36 +16,47 @@ struct PrayerRowView: View {
         self.progress = progress
         self.theme = theme
     }
-    
+
     var body: some View {
         VStack(spacing: 0) {
             // Main row content
             HStack(spacing: 10) {
-                // Icon
+                // Icon with pill background
                 Text(prayer.icon)
                     .font(.system(size: isNext ? 18 : 15))
-                    .frame(width: 24)
-                
+                    .padding(6)
+                    .background(
+                        Circle()
+                            .fill(theme.iconPillBackground)
+                    )
+                    .frame(width: 36, height: 36)
+
                 // Name
                 Text(prayer.name)
                     .font(.system(size: isNext ? 13 : 12, weight: isNext ? .semibold : .regular))
                     .foregroundColor(isNext ? theme.accentColor : theme.primaryTextColor)
                     .frame(width: 65, alignment: .leading)
-                
+
                 // Countdown (only for next prayer, larger & prominent)
                 if isNext, let countdown = countdown {
                     Text(countdown)
-                        .font(.system(size: 16, weight: .bold, design: .monospaced))
+                        .font(.system(size: 12, weight: .bold, design: .monospaced))
                         .foregroundColor(theme.accentColor)
                 }
-                
+
                 Spacer()
-                
-                // Time
+
+                // Time with badge capsule
                 Text(formatTime(prayer.time))
-                    .font(.system(size: isNext ? 13 : 12, weight: isNext ? .medium : .regular, design: .monospaced))
-                    .foregroundColor(isNext ? theme.primaryTextColor : theme.secondaryTextColor)
-                
+                    .font(.system(size: isNext ? 12 : 11, weight: isNext ? .medium : .regular, design: .monospaced))
+                    .foregroundColor(theme.timeBadgeTextColor)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(
+                        Capsule()
+                            .fill(isNext ? theme.accentColor : theme.timeBadgeBackground)
+                    )
+
                 // Timezone Label
                 Text(prayer.timeZone)
                     .font(.system(size: 9, weight: .medium))
@@ -57,7 +70,7 @@ struct PrayerRowView: View {
             }
             .padding(.horizontal, 12)
             .padding(.vertical, isNext ? 10 : 7)
-            
+
             // Progress bar (only for next prayer)
             if isNext {
                 GeometryReader { geometry in
@@ -66,8 +79,8 @@ struct PrayerRowView: View {
                         RoundedRectangle(cornerRadius: 1.5)
                             .fill(theme.progressTrackColor)
                             .frame(height: 3)
-                        
-                        // Fill
+
+                        // Fill with gradient
                         RoundedRectangle(cornerRadius: 1.5)
                             .fill(
                                 LinearGradient(
@@ -85,16 +98,54 @@ struct PrayerRowView: View {
                 .padding(.bottom, 8)
             }
         }
+        // Glassmorphism card background
         .background(
-            RoundedRectangle(cornerRadius: 8)
-                .fill(isNext ? theme.nextPrayerCardBackground : theme.cardBackground)
-                .overlay(
+            Group {
+                if isNext {
+                    // Next prayer: enhanced glass with gradient border
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(theme.nextPrayerCardBackground)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 12)
+                                .stroke(
+                                    LinearGradient(
+                                        colors: [
+                                            theme.nextPrayerBorder.opacity(pulseAnimation),
+                                            theme.nextPrayerBorder.opacity(0.3)
+                                        ],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    ),
+                                    lineWidth: 2
+                                )
+                        )
+                        .shadow(color: theme.nextPrayerShadowColor, radius: 10, x: 0, y: 4)
+                } else {
+                    // Normal prayer: subtle glass
                     RoundedRectangle(cornerRadius: 8)
-                        .stroke(isNext ? theme.nextPrayerBorder : theme.cardBorder, lineWidth: isNext ? 1.0 : 0.5)
-                )
+                        .fill(theme.cardBackground)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(theme.cardBorder, lineWidth: 0.5)
+                        )
+                }
+            }
         )
+        // Scale effect for next prayer
+        .scaleEffect(isNext ? 1.02 : 1.0)
+        // Pulse animation for next prayer
+        .onAppear {
+            if isNext {
+                withAnimation(
+                    .easeInOut(duration: 2.0)
+                    .repeatForever(autoreverses: true)
+                ) {
+                    pulseAnimation = 0.8
+                }
+            }
+        }
     }
-    
+
     private func formatTime(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"

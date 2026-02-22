@@ -5,7 +5,7 @@ struct AdzanBarApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
-        MenuBarExtra("AdzanBar", systemImage: "moon.fill") {
+        MenuBarExtra("AdzanBar", image: "MenuBarIcon") {
             MenuBarView()
         }
         .menuBarExtraStyle(.window)
