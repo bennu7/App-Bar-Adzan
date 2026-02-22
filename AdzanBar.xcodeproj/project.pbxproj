@@ -6,17 +6,43 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		163CE8502F49E03A008B5881 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 163CE83A2F49E03A008B5881 /* Assets.xcassets */; };
+		163CE8522F49E03A008B5881 /* CityPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CE84A2F49E03A008B5881 /* CityPickerView.swift */; };
+		163CE8532F49E03A008B5881 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CE8412F49E03A008B5881 /* CacheService.swift */; };
+		163CE8542F49E03A008B5881 /* PrayerTimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CE8452F49E03A008B5881 /* PrayerTimeUtils.swift */; };
+		163CE8552F49E03A008B5881 /* PrayerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CE83F2F49E03A008B5881 /* PrayerModels.swift */; };
+		163CE8562F49E03A008B5881 /* MyQuranAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CE8422F49E03A008B5881 /* MyQuranAPIClient.swift */; };
+		163CE8572F49E03A008B5881 /* PrayerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CE84C2F49E03A008B5881 /* PrayerRowView.swift */; };
+		163CE8582F49E03A008B5881 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CE8462F49E03A008B5881 /* UserPreferences.swift */; };
+		163CE8592F49E03A008B5881 /* PrayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CE8482F49E03A008B5881 /* PrayerViewModel.swift */; };
+		163CE85A2F49E03A008B5881 /* AdzanBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CE83D2F49E03A008B5881 /* AdzanBarApp.swift */; };
+		163CE85B2F49E03A008B5881 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CE84B2F49E03A008B5881 /* MenuBarView.swift */; };
+		163CE85C2F49E03A008B5881 /* PrayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CE8432F49E03A008B5881 /* PrayerService.swift */; };
+		163CE85D2F49E03A008B5881 /* CityList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CE83E2F49E03A008B5881 /* CityList.swift */; };
+		169217ED2F4AE3CD004A6B90 /* TimezoneMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169217EC2F4AE3CD004A6B90 /* TimezoneMapper.swift */; };
+		16A000022F4BE000008B5881 /* SkyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A000012F4BE000008B5881 /* SkyTheme.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		163CE83A2F49E03A008B5881 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		163CE83C2F49E03A008B5881 /* AdzanBar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AdzanBar.xcodeproj; sourceTree = "<group>"; };
+		163CE83D2F49E03A008B5881 /* AdzanBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdzanBarApp.swift; sourceTree = "<group>"; };
+		163CE83E2F49E03A008B5881 /* CityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityList.swift; sourceTree = "<group>"; };
+		163CE83F2F49E03A008B5881 /* PrayerModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerModels.swift; sourceTree = "<group>"; };
+		163CE8412F49E03A008B5881 /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
+		163CE8422F49E03A008B5881 /* MyQuranAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQuranAPIClient.swift; sourceTree = "<group>"; };
+		163CE8432F49E03A008B5881 /* PrayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerService.swift; sourceTree = "<group>"; };
+		163CE8452F49E03A008B5881 /* PrayerTimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTimeUtils.swift; sourceTree = "<group>"; };
+		163CE8462F49E03A008B5881 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		163CE8482F49E03A008B5881 /* PrayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerViewModel.swift; sourceTree = "<group>"; };
+		163CE84A2F49E03A008B5881 /* CityPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPickerView.swift; sourceTree = "<group>"; };
+		163CE84B2F49E03A008B5881 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		163CE84C2F49E03A008B5881 /* PrayerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerRowView.swift; sourceTree = "<group>"; };
+		169217EC2F4AE3CD004A6B90 /* TimezoneMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimezoneMapper.swift; sourceTree = "<group>"; };
+		16A000012F4BE000008B5881 /* SkyTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyTheme.swift; sourceTree = "<group>"; };
 		16D5EE242F49DE57005CFF27 /* AdzanBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdzanBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		16D5EE262F49DE57005CFF27 /* AdzanBar */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = AdzanBar;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		16D5EE212F49DE57005CFF27 /* Frameworks */ = {
@@ -29,11 +55,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		163CE8402F49E03A008B5881 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				163CE83E2F49E03A008B5881 /* CityList.swift */,
+				163CE83F2F49E03A008B5881 /* PrayerModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		163CE8442F49E03A008B5881 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				163CE8412F49E03A008B5881 /* CacheService.swift */,
+				163CE8422F49E03A008B5881 /* MyQuranAPIClient.swift */,
+				163CE8432F49E03A008B5881 /* PrayerService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+	163CE8472F49E03A008B5881 /* Utils */ = {
+		isa = PBXGroup;
+		children = (
+			169217EC2F4AE3CD004A6B90 /* TimezoneMapper.swift */,
+			163CE8452F49E03A008B5881 /* PrayerTimeUtils.swift */,
+			163CE8462F49E03A008B5881 /* UserPreferences.swift */,
+			16A000012F4BE000008B5881 /* SkyTheme.swift */,
+		);
+		path = Utils;
+		sourceTree = "<group>";
+	};
+		163CE8492F49E03A008B5881 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				163CE8482F49E03A008B5881 /* PrayerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		163CE84D2F49E03A008B5881 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				163CE84A2F49E03A008B5881 /* CityPickerView.swift */,
+				163CE84B2F49E03A008B5881 /* MenuBarView.swift */,
+				163CE84C2F49E03A008B5881 /* PrayerRowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		163CE84E2F49E03A008B5881 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
 		16D5EE1B2F49DE57005CFF27 = {
 			isa = PBXGroup;
 			children = (
-				16D5EE262F49DE57005CFF27 /* AdzanBar */,
+				163CE83C2F49E03A008B5881 /* AdzanBar.xcodeproj */,
+				163CE83D2F49E03A008B5881 /* AdzanBarApp.swift */,
+				163CE8402F49E03A008B5881 /* Models */,
+				163CE8442F49E03A008B5881 /* Services */,
+				163CE8472F49E03A008B5881 /* Utils */,
+				163CE8492F49E03A008B5881 /* ViewModels */,
+				163CE84D2F49E03A008B5881 /* Views */,
 				16D5EE252F49DE57005CFF27 /* Products */,
+				163CE83A2F49E03A008B5881 /* Assets.xcassets */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,9 +145,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				16D5EE262F49DE57005CFF27 /* AdzanBar */,
 			);
 			name = AdzanBar;
 			packageProductDependencies = (
@@ -97,6 +180,12 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 16D5EE252F49DE57005CFF27 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 163CE84E2F49E03A008B5881 /* Products */;
+					ProjectRef = 163CE83C2F49E03A008B5881 /* AdzanBar.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				16D5EE232F49DE57005CFF27 /* AdzanBar */,
@@ -109,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				163CE8502F49E03A008B5881 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +209,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				163CE8522F49E03A008B5881 /* CityPickerView.swift in Sources */,
+				169217ED2F4AE3CD004A6B90 /* TimezoneMapper.swift in Sources */,
+				163CE8532F49E03A008B5881 /* CacheService.swift in Sources */,
+				163CE8542F49E03A008B5881 /* PrayerTimeUtils.swift in Sources */,
+				163CE8552F49E03A008B5881 /* PrayerModels.swift in Sources */,
+				163CE8562F49E03A008B5881 /* MyQuranAPIClient.swift in Sources */,
+				163CE8572F49E03A008B5881 /* PrayerRowView.swift in Sources */,
+				163CE8582F49E03A008B5881 /* UserPreferences.swift in Sources */,
+				163CE8592F49E03A008B5881 /* PrayerViewModel.swift in Sources */,
+				163CE85A2F49E03A008B5881 /* AdzanBarApp.swift in Sources */,
+				163CE85B2F49E03A008B5881 /* MenuBarView.swift in Sources */,
+				163CE85C2F49E03A008B5881 /* PrayerService.swift in Sources */,
+				163CE85D2F49E03A008B5881 /* CityList.swift in Sources */,
+				16A000022F4BE000008B5881 /* SkyTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,9 +360,20 @@
 				DEVELOPMENT_TEAM = T6CZB7S85Q;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -288,9 +403,20 @@
 				DEVELOPMENT_TEAM = T6CZB7S85Q;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
