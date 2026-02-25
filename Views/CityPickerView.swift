@@ -11,7 +11,7 @@ struct CityPickerView: View {
     var onDismiss: (() -> Void)?
     
     private let service = PrayerService.shared
-    private let theme = SkyTheme()
+    private let theme = SkyTheme(isGlassMode: UserPreferences.shared.isGlassMode)
     
     var filteredCities: [City] {
         if searchText.isEmpty {

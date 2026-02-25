@@ -148,6 +148,10 @@ struct SkyTheme {
     
     // MARK: - Text Colors
     var primaryTextColor: Color {
+        if (isGlassMode) {
+            return .white
+        }
+        
         switch period {
         case .morning, .midday, .afternoon:
             return Color(red: 0.15, green: 0.15, blue: 0.20)
@@ -159,6 +163,10 @@ struct SkyTheme {
     }
     
     var secondaryTextColor: Color {
+        if (isGlassMode) {
+            return .white
+        }
+        
         switch period {
         case .morning, .midday, .afternoon:
             return Color(red: 0.35, green: 0.35, blue: 0.45)
@@ -241,6 +249,10 @@ struct SkyTheme {
     }
 
     var timeBadgeTextColor: Color {
+        if (isGlassMode) {
+            return .white
+        }
+        
         switch period {
         case .morning, .midday, .afternoon:
             return Color(red: 0.15, green: 0.15, blue: 0.20)

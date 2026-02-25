@@ -179,7 +179,7 @@ struct MenuBarView: View {
             }
 
             // Notification toggle
-            NotificationToggle(isEnabled: UserPreferences.shared.isNotificationEnabled) {
+            NotificationToggle(isEnabled: UserPreferences.shared.isNotificationEnabled, isGlassMode: viewModel.isGlassMode) {
                 UserPreferences.shared.isNotificationEnabled.toggle()
                 if UserPreferences.shared.isNotificationEnabled {
                     NotificationService.shared.requestPermission()
@@ -243,6 +243,8 @@ struct GlassModeToggle: View {
     var body: some View {
         Button(action: action) {
             Image(systemName: isGlassMode ? "drop.fill" : "drop")
+//            Image(systemName: "drop")
+                .foregroundColor(isGlassMode ? .white : .black)
                 .font(.system(size: 10))
                 .padding(.horizontal, 8)
                 .padding(.vertical, 5)
@@ -252,6 +254,7 @@ struct GlassModeToggle: View {
                 )
         }
         .buttonStyle(.plain)
+        .help(isGlassMode ? "Switch to Filled Gradient Mode" : "Switch to Glass Mode")
         .onHover { hovering in
             isHovering = hovering
         }
@@ -261,6 +264,7 @@ struct GlassModeToggle: View {
 // MARK: - Notification Toggle
 struct NotificationToggle: View {
     let isEnabled: Bool
+    let isGlassMode: Bool
     let action: () -> Void
     
     @State private var isHovering = false
@@ -268,6 +272,7 @@ struct NotificationToggle: View {
     var body: some View {
         Button(action: action) {
             Image(systemName: isEnabled ? "bell.fill" : "bell")
+                .foregroundColor(isGlassMode ? .white : .black)
                 .font(.system(size: 10))
                 .padding(.horizontal, 8)
                 .padding(.vertical, 5)
@@ -277,6 +282,7 @@ struct NotificationToggle: View {
                 )
         }
         .buttonStyle(.plain)
+        .help(!isEnabled ? "Turn On Notifications" : "Turn Off Notifications")
         .onHover { hovering in
             isHovering = hovering
         }
